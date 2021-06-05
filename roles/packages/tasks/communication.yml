@@ -1,0 +1,6 @@
+---
+- name: Install communication packages via Homebrew Casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  with_items:
+    - krisp

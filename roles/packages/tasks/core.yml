@@ -1,0 +1,20 @@
+---
+- name: Install core packages via Homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+  with_items:
+    - asdf
+    - bat
+    - curl
+    - fd
+    - htop
+    - jq
+    - lf
+    - ripgrep
+
+- name: Install core packages via Homebrew Casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  with_items:
+    - iterm2
+    - typora

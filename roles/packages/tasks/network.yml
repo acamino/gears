@@ -1,0 +1,7 @@
+---
+- name: Install network packages via Homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+  with_items:
+    - ldns    # https://command-not-found.com/drill
+    - nmap

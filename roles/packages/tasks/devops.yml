@@ -1,0 +1,19 @@
+---
+- name: Install devops packages via Homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+  with_items:
+    - ansible
+    - ansible-lint
+    - awscli
+    - azure-cli
+    - kubernetes-cli
+    - terraform
+
+- name: Install devops packages via Homebrew Casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  with_items:
+    - docker
+    - vagrant
+    - virtualbox
