@@ -1,0 +1,29 @@
+---
+git:
+  user:
+    email: agustin.camino@gmail.com
+    name: Agustin Camino
+
+  color:
+    ui: auto
+
+  alias:
+    aa: add --all
+    amend: commit --amend
+    br: branch
+    ci: commit --verbose
+    co: checkout
+    dc: diff --cached
+    di: diff
+    l: '"!. {{ config_dir }}/git/pretty_git_log && pretty_git_log"'
+    lg: '"!. {{ config_dir }}/git/pretty_git_log && pretty_git_log" -15'
+    pullff: pull --ff-only
+    st: status
+
+  merge:
+    tool: nvim -d
+
+  core:
+    editor: nvim
+    excludesfile: ~/.gitignore_global
+    pager: "command -v diff-so-fancy > /dev/null && (diff-so-fancy | less) || less"

@@ -6,4 +6,5 @@
     - community.general
 
   roles:
+    - role: git
     - role: packages

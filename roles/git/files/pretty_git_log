@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Source: https://github.com/garybernhardt/dotfiles/blob/master/.githelpers
+#
+# Pretty Git Log
+#
+# Log output:
+#
+# * ff3c5f7  (7 days)    Agustin Camino   Here be dragons
+
+function pretty_git_log() {
+  readonly COMMIT_HASH="%C(yellow)%h%Creset"
+  readonly RELATIVE_TIME="%C(cyan)(%ar)%Creset"
+  readonly AUTHOR="%C(blue)%an%Creset"
+  readonly REFS="%C(bold red)%d%Creset"
+  readonly SUBJECT="%s"
+
+  readonly FORMAT="$COMMIT_HASH}$RELATIVE_TIME}$AUTHOR}$REFS $SUBJECT"
+  git log --color=always --pretty="tformat:${FORMAT}" $* |
+      # Replace (2 years ago) with (2 years)
+      sed -Ee 's/(^[^<]*) ago\)/\1)/' |
+      # Replace (2 years, 5 months) with (2 years)
+      sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?\)/\1)/' |
+      # Line columns up based on } delimiter
+      column -s '}' -t |
+      # Page only if we need to
+      less --quit-if-one-screen --no-init --RAW-CONTROL-CHARS --chop-long-lines
+}

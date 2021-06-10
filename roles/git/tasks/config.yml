@@ -1,0 +1,25 @@
+---
+- name: Create ~/.config/git directory
+  file:
+    path: "{{ git_config_dir }}"
+    state: directory
+    mode: u=rwX,go=rX
+
+- name: Copy pretty_git_log
+  copy:
+    src: pretty_git_log
+    dest: "{{ git_config_dir }}/pretty_git_log"
+    mode: u=rw,go=r
+
+- name: Copy ~/.gitignore_global
+  copy:
+    src: gitignore_global
+    dest: ~/.gitignore_global
+    mode: u=rw,go=r
+
+- name: Generate config file
+  template:
+    src: config.j2
+    dest: "{{ git_config_dir }}/config"
+    mode: u=rw,g=r,o=r
+  when: git is defined
