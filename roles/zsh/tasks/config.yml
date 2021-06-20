@@ -1,0 +1,30 @@
+---
+- name: Create ~/.config/zsh directory
+  file:
+    path: "{{ config_dir }}/zsh"
+    state: directory
+    mode: u=rwX,go=rX
+
+- name: Copy zsh configuration files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ config_dir }}/zsh/conf.d/"
+    mode: u=rw,g=r,o=r
+  with_fileglob:
+    - conf.d/*
+  notify: Reload ~/.zshrc
+
+- name: Generate ~/.antigenrc file
+  template:
+    src: antigenrc.j2
+    dest: ~/.antigenrc
+    mode: u=rw,go=r
+  when: antigen is defined
+  notify: Reload ~/.zshrc
+
+- name: Copy ~/.zshrc file
+  copy:
+    src: zshrc
+    dest: ~/.zshrc
+    mode: u=rw,go=r
+  notify: Reload ~/.zshrc

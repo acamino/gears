@@ -1,0 +1,7 @@
+antigen use oh-my-zsh
+
+{% for plugin in antigen.plugins %}
+antigen bundle {{ plugin }}
+{% endfor %}
+
+antigen apply

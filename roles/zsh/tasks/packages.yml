@@ -1,0 +1,18 @@
+---
+- name: Install zsh packages via homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+  with_items:
+    - antigen
+    - zsh
+
+- name: Check if oh-my-zsh.sh exists
+  stat:
+    path: ~/.oh-my-zsh/oh-my-zsh.sh
+  register: oh_my_zsh_result
+
+- name: Install oh-my-zsh # noqa git-latest
+  git:
+    repo: https://github.com/ohmyzsh/ohmyzsh.git
+    dest: ~/.oh-my-zsh
+  when: not oh_my_zsh_result.stat.exists

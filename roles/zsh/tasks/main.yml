@@ -1,0 +1,10 @@
+---
+- import_tasks: packages.yml
+  tags:
+    - zsh-packages
+    - zsh
+
+- import_tasks: config.yml
+  tags:
+    - zsh-config
+    - zsh

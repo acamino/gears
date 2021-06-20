@@ -1,0 +1,2 @@
+- name: Reload ~/.zshrc
+  command: "/usr/local/bin/zsh -c 'source ~/.zshrc'"
