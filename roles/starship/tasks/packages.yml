@@ -1,0 +1,6 @@
+---
+- name: Install Starship via homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+  with_items:
+    - starship

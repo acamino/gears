@@ -1,0 +1,10 @@
+---
+- import_tasks: packages.yml
+  tags:
+    - starship
+    - starship-packages
+
+- import_tasks: config.yml
+  tags:
+    - starship
+    - starship-config

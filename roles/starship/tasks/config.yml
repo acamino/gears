@@ -1,0 +1,6 @@
+---
+- name: Copy starship config
+  copy:
+    src: starship.toml
+    dest: "{{ config_dir }}/starship.toml"
+    mode: u=rw,go=r

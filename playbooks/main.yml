@@ -8,4 +8,5 @@
   roles:
     - role: git
     - role: packages
+    - role: starship
     - role: zsh
