@@ -1,0 +1,53 @@
+" Line numbers.
+set number
+set relativenumber
+
+" Search.
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set expandtab
+set shiftwidth=4
+set smarttab
+set tabstop=4
+set wildmenu
+
+" Status line.
+set laststatus=2
+
+" Backup files.
+set nobackup
+set nowb
+
+set mouse=a
+
+set cursorline
+
+set inccommand=split
+set clipboard=unnamed
+
+set list listchars=tab:\ \ ,trail:·,nbsp:_,extends:»,precedes:«
+
+" , key as leader
+let mapleader=","
+
+" Move lines up and down.
+nmap <S-A-k> :m .-2<CR>
+nmap <S-A-j> :m .+1<CR>
+
+" Hide search highlighting.
+nmap <silent><Leader>. :nohlsearch<CR>
+
+" Quickly jump between last two files.
+nmap <Leader><Leader> <C-^>
+
+" Theme.
+colorscheme snazzy
+
+" Jump to last cursor position unless it's invalid or in an event handler.
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif

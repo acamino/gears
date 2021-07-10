@@ -1,0 +1,17 @@
+---
+- name: Copy plugin files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ nvim_config_dir }}/plugin/"
+    mode: u=rw,g=r,o=r
+  with_fileglob:
+    - plugin/*
+
+- name: Generate ~/.config/nvim/init.vim file
+  template:
+    src: init.vim.j2
+    dest: "{{ nvim_config_dir }}/init.vim"
+    mode: u=rw,go=r
+  notify:
+    - Clean nvim plugins
+    - Install nvim plugins

@@ -1,0 +1,5 @@
+- name: Clean nvim plugins
+  command: /usr/local/bin/nvim +PlugClean! +qa
+
+- name: Install nvim plugins
+  command: /usr/local/bin/nvim +PlugInstall +qa

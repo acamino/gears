@@ -1,0 +1,6 @@
+---
+- name: Copy ~/.vimrc file
+  copy:
+    src: vimrc
+    dest: ~/.vimrc
+    mode: u=rw,go=r

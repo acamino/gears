@@ -6,6 +6,7 @@
     - community.general
 
   roles:
+    - role: nvim
     - role: git
     - role: packages
     - role: starship

@@ -1,0 +1,16 @@
+---
+- import_tasks: packages.yml
+  tags:
+    - nvim-packages
+    - nvim
+
+- import_tasks: config.yml
+  tags:
+    - nvim-config
+    - nvim
+
+- import_tasks: plugins.yml
+  tags:
+    - nvim-config
+    - nvim-plugins
+    - nvim
