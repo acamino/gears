@@ -66,6 +66,9 @@ $ ansible-playbook playbooks/main.yml --tags zsh
 * `startship`: Install and configure Startship.
   * `startship-packages`: Install Startship package via Homebrew.
   * `startship-config`: Configure Startship.
+* `tmux`: Install and configure Tmux.
+  * `tmux-packages`: Install Tmux package via Homebrew.
+  * `tmux-config`: Configure Tmux.
 * `zsh`: Install and configure Zsh and Oh My Zsh.
   * `zsh-packages`: Install Zsh packages via Homebrew.
   * `zsh-config`: Configure Zsh.

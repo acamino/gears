@@ -1,0 +1,2 @@
+- name: Reload ~/.tmux.conf
+  command: "/usr/local/bin/zsh -c 'tmux source-file ~/.tmux.conf'"

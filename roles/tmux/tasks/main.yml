@@ -1,0 +1,10 @@
+---
+- import_tasks: packages.yml
+  tags:
+    - tmux
+    - tmux-packages
+
+- import_tasks: config.yml
+  tags:
+    - tmux
+    - tmux-config

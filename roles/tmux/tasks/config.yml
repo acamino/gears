@@ -1,0 +1,7 @@
+---
+- name: Copy Tmux configuration file
+  copy:
+    src: tmux.conf
+    dest: ~/.tmux.conf
+    mode: u=rw,go=r
+  notify: Reload ~/.tmux.conf

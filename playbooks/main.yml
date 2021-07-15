@@ -6,8 +6,9 @@
     - community.general
 
   roles:
-    - role: nvim
-    - role: git
     - role: packages
+    - role: git
+    - role: nvim
     - role: starship
+    - role: tmux
     - role: zsh
