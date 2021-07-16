@@ -8,3 +8,9 @@
   tags:
     - zsh-config
     - zsh
+
+- import_tasks: plugins.yml
+  tags:
+    - zsh-config
+    - zsh-plugins
+    - zsh

@@ -1,0 +1,17 @@
+#compdef tempo
+#autoload
+
+local -a __tempo_commands
+__tempo_commands=(
+    "cw:{{ vault_cow }}"
+    "dr:{{ vault_drp }}"
+    "ds:{{ vault_han }}"
+    "gn:{{ vault_geno }}"
+    "mr:{{ vault_mar }}"
+    "mt:{{ vault_mot }}"
+    "rb:{{ vault_rob }}"
+    "rr:{{ vault_rcrd }}"
+    "sh:{{ vault_shop }}"
+    "vz:{{ vault_vz }}"
+)
+_describe -t tempo "tempo commands" __tempo_commands

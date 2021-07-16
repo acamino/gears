@@ -1,0 +1,14 @@
+---
+- name: Generate _tempo autocomplete
+  template:
+    src: plugins/tempo/_tempo.j2
+    dest: "{{ oh_my_zsh_custom_plugins_dir }}/tempo/_tempo"
+    mode: u=rw,go=r
+  notify: Reload ~/.zshrc
+
+- name: Generate tempo plugin
+  template:
+    src: plugins/tempo/tempo.plugin.zsh.j2
+    dest: "{{ oh_my_zsh_custom_plugins_dir }}/tempo/tempo.plugin.zsh"
+    mode: u=rw,go=r
+  notify: Reload ~/.zshrc

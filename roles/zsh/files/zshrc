@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Example format: plugins=(rails git ruby)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible git kubectl)
+plugins=(ansible git kubectl tempo)
 
 source $ZSH/oh-my-zsh.sh
 

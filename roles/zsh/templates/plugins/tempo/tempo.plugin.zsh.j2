@@ -1,0 +1,77 @@
+function tempo() {
+    local project="$1"
+    case $project in
+        cow|cw)
+            __tempo_print_project_name "{{ vault_cow }} 📦"
+            __tempo_print_code "CW-7" "Ad-hoc requests"
+            __tempo_print_code "COW-6" "Code review"
+            __tempo_print_code "COW-2" "Meetings"
+            ;;
+        drp|dr)
+            __tempo_print_project_name "{{ vault_drp}} 🥫"
+            __tempo_print_code "DRP-7" "Code review"
+            __tempo_print_code "DRP-3" "Meetings"
+            __tempo_print_code "DRP-280" "Research"
+            ;;
+        han|ds)
+            __tempo_print_project_name "{{ vault_han }} 📝"
+            __tempo_print_code "HAN-146" "Code review"
+            __tempo_print_code "HAN-137" "Research"
+            __tempo_print_code "HAN-444" "QA"
+            ;;
+        geno|gn)
+            __tempo_print_project_name "{{ vault_geno }} 💝"
+            __tempo_print_code "GENO-242" "Assessment"
+            __tempo_print_code "GENO-215" "Dev meeting"
+            __tempo_print_code "GENO-232" "Interviews"
+            __tempo_print_code "GENO-171" "Production call"
+            __tempo_print_code "GENO-174" "Project management oversight"
+            ;;
+        mar|mr)
+            __tempo_print_project_name "{{ vault_mar }} 🍜"
+            __tempo_print_code "MAR-91" "Code review"
+            ;;
+        mot|mt)
+            __tempo_print_project_name "{{ vault_mot }}"
+            __tempo_print_code "MOT-1" "Meetings"
+            __tempo_print_code "MOT-2" "Discovery work"
+            ;;
+        rob|rb)
+            __tempo_print_project_name "{{ vault_rob }} 🤖"
+            __tempo_print_code "ROB-741" "Code review"
+            __tempo_print_code "ROB-70" "Meetings"
+            __tempo_print_code "ROB-740" "Research"
+            __tempo_print_code "ROB-742" "Ticket review"
+            ;;
+        rcrd|rr)
+            __tempo_print_project_name "{{ vault_rcrd }} 🎧"
+            __tempo_print_code "RCRD-252" "Meetings"
+            ;;
+        shop|sh)
+            __tempo_print_project_name "{{ vault_shop }} 🛒"
+            __tempo_print_code "SHOP-914" "Technical support"
+            ;;
+        vz)
+            __tempo_print_project_name "{{ vault_vz }} 📮"
+            __tempo_print_code "VZ-15" "Code review"
+            __tempo_print_code "VZ-14" "Meetings"
+            ;;
+        *)
+            print "Unknown project: $project\n"
+            ;;
+    esac
+}
+
+function __tempo_print_code() {
+    local code="$1"
+    local description="$2"
+
+    # https://stackoverflow.com/a/5947802/3536425
+    printf '    \e[0;32m%-10s\e[0;m     %-20s\n' "$code" "$description"
+}
+
+function __tempo_print_project_name() {
+    local project_name="$1"
+
+    printf '\e[0;32m%s\e[0;m\n' "$project_name"
+}
