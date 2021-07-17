@@ -51,11 +51,11 @@ $ ansible-playbook playbooks/main.yml --tags zsh
 
 ### Tags
 
-* `packages-base`: Install base packages via Homebrew.
-  * `packages-comm`: Install communication packages.
-  * `packages-core`: Install core packages.
-  * `packages-devops`: Install devops packages.
-  * `packages-network`: Install network packages.
+* `base-packages`: Install base packages via Homebrew.
+  * `comm-packages`: Install communication packages.
+  * `core-packages`: Install core packages.
+  * `devops-packages`: Install devops packages.
+  * `network-packages`: Install network packages.
 * `git`: Install and configure Git.
   * `git-packages`: Install Git packages via Homebrew.
   * `git-config`: Configure Git.

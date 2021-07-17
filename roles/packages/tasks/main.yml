@@ -1,20 +1,20 @@
 ---
 - import_tasks: communication.yml
   tags:
-    - packages-comm
-    - packages-base
+    - comm-packages
+    - base-packages
 
 - import_tasks: core.yml
   tags:
-    - packages-core
-    - packages-base
+    - core-packages
+    - base-packages
 
 - import_tasks: devops.yml
   tags:
-    - packages-devops
-    - packages-base
+    - devops-packages
+    - base-packages
 
 - import_tasks: network.yml
   tags:
-    - packages-network
-    - packages-base
+    - network-packages
+    - base-packages
