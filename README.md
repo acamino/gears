@@ -1,14 +1,29 @@
-<img src="https://dl.dropboxusercontent.com/s/olwj8m8xwcjn6i2/gears.svg"
-     alt="gears"
+<img src="https://dl.dropboxusercontent.com/s/dw0kqljhowyb5et/raccoons.png"
+     alt="raccoons"
      align="right"
-     width="300;" />
+     width="400" />
 
-# Gears
+# Raccoon
 
-**Gears** is the collection the _Ansible roles_ responsible for provisioning my
+**Raccoon** is the collection of _Ansible roles_ responsible for provisioning my
 development environment.
 
-**Table of Contents**
+In a nutshell:
+
+* Install [base packages](roles/packages/tasks).
+* Configure [SSH](https://www.ssh.com/academy/ssh) by provisioning my SSH keys and configuration files.
+  _Sensitive information is encrypted with [Ansible Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html)._
+* Install and configure:
+  * [Git](https://git-scm.com/)
+  * [Neovim](https://neovim.io/)
+    * [vim-plug](https://github.com/junegunn/vim-plug)
+  * [Starship](https://starship.rs/)
+  * [Tmux](https://github.com/tmux/tmux)
+  * [Zsh](https://www.zsh.org/)
+    * [Antigen](https://github.com/zsh-users/antigen)
+    * [Oh My Zsh](https://ohmyz.sh/)
+
+## Contents
 <!-- TOC GFM -->
 
 * [Dependencies](#dependencies)
@@ -29,8 +44,8 @@ development environment.
 
 1. Clone this repository.
    ```bash
-   $ git clone git@github.com:acamino/gears.git
-   $ cd gears
+   $ git clone git@github.com:acamino/raccoon.git
+   $ cd raccoon
    ```
 1. Install dependencies.
    ```bash
