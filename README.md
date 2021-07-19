@@ -63,6 +63,8 @@ $ ansible-playbook playbooks/main.yml --tags zsh
   * `nvim-packages`: Install neovim package via Homebrew.
   * `nvim-config`: Configure Git.
   * `nvim-plugins`: Configure Git plugins.
+* `ssh`: Configure SSH.
+  * `ssh-config`: Configure SSH.
 * `startship`: Install and configure Startship.
   * `startship-packages`: Install Startship package via Homebrew.
   * `startship-config`: Configure Startship.

@@ -1,0 +1,4 @@
+---
+ssh_dir: "~/.ssh"
+ssh_config_dir: "{{ ssh_dir }}/conf.d"
+ssh_sockets_dir: "{{ ssh_dir }}/sockets"

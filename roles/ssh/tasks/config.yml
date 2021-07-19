@@ -1,0 +1,70 @@
+---
+- name: Create ~/.ssh directory
+  file:
+    path: "{{ ssh_dir }}"
+    state: directory
+    mode: u=rwX,go=rX
+
+- name: Generate ~/.ssh/config file
+  template:
+    src: config.j2
+    dest: "{{ ssh_dir }}/config"
+    mode: u=rw,go=r
+  vars:
+    project: "{{ vault_ssh.genome }}"
+
+- name: Generate id_rsa private key
+  template:
+    src: key.j2
+    dest: "{{ ssh_dir }}/id_rsa"
+    mode: u=rw,go=
+  vars:
+    key: "{{ vault_keys.id_rsa }}"
+
+- name: Copy id_rsa.pub key
+  copy:
+    src: id_rsa.pub
+    dest: "{{ ssh_dir }}/id_rsa.pub"
+    mode: u=rw,go=r
+
+- name: Generate id_ed25519 private key
+  template:
+    src: key.j2
+    dest: "{{ ssh_dir }}/id_ed25519"
+    mode: u=rw,go=
+  vars:
+    key: "{{ vault_keys.id_ed25519 }}"
+
+- name: Copy id_ed25519.pub key
+  copy:
+    src: id_ed25519.pub
+    dest: "{{ ssh_dir }}/id_ed25519.pub"
+    mode: u=rw,go=r
+
+- name: Create ~/.ssh/sockets directory
+  file:
+    path: "{{ ssh_sockets_dir }}"
+    state: directory
+    mode: u=rwX,go=rX
+
+- name: Create ~/.ssh/conf.d directory
+  file:
+    path: "{{ ssh_config_dir }}"
+    state: directory
+    mode: u=rwX,go=rX
+
+- name: Generate Genome configuration file
+  template:
+    src: conf.d/conf.j2
+    dest: "{{ ssh_config_dir }}/genome"
+    mode: u=rw,go=r
+  vars:
+    project: "{{ vault_ssh.genome }}"
+
+- name: Generate holr configuration file
+  template:
+    src: conf.d/conf.j2
+    dest: "{{ ssh_config_dir }}/holr"
+    mode: u=rw,go=r
+  vars:
+    project: "{{ vault_ssh.holr }}"

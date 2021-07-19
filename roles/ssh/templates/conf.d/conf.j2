@@ -1,0 +1,9 @@
+# vi: ft=sshconfig
+{% for host, config in project.hosts.items() %}
+
+Host {{ host }}
+{% for key, value in config.items() %}
+  {{ key }} {{ value }}
+{% endfor %}
+  User {{ project.user }}
+{% endfor %}

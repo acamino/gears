@@ -1,0 +1,16 @@
+Include {{ ssh_config_dir }}/*
+
+Host *
+    AddKeysToAgent yes
+    VisualHostKey yes
+
+    IdentityFile {{ ssh_dir }}/id_ed25519
+    IdentityFile {{ ssh_dir }}/id_rsa
+
+    ServerAliveCountMax 5
+    ServerAliveInterval 120
+    TCPKeepAlive yes
+
+    ControlMaster auto
+    ControlPersist 20m
+    ControlPath {{ ssh_sockets_dir }}/%r@%h:%p

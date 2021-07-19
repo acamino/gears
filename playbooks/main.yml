@@ -9,6 +9,7 @@
     - role: packages
     - role: git
     - role: nvim
+    - role: ssh
     - role: starship
     - role: tmux
     - role: zsh
