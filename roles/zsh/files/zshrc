@@ -7,6 +7,13 @@ plugins=(ansible git kubectl tempo tmux xtmux)
 
 source $ZSH/oh-my-zsh.sh
 
+# Preferred editor for local and remote sessions.
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
 # Load configuration files.
 for config_file ($HOME/.config/zsh/conf.d/*.zsh); do
   source $config_file
