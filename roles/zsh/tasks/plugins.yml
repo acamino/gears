@@ -1,4 +1,10 @@
 ---
+- name: Create tempo directory
+  file:
+    path: "{{ oh_my_zsh_custom_plugins_dir }}/tempo"
+    state: directory
+    mode: u=rwX,go=rX
+
 - name: Generate _tempo autocomplete
   template:
     src: plugins/tempo/_tempo.j2
@@ -11,4 +17,13 @@
     src: plugins/tempo/tempo.plugin.zsh.j2
     dest: "{{ oh_my_zsh_custom_plugins_dir }}/tempo/tempo.plugin.zsh"
     mode: u=rw,go=r
+  notify: Reload ~/.zshrc
+
+- name: Copy xtmux
+  copy:
+    src: "{{ item }}"
+    dest: "{{ oh_my_zsh_custom_plugins_dir }}/xtmux/"
+    mode: u=rw,g=r,o=r
+  with_fileglob:
+    - plugins/xtmux/*
   notify: Reload ~/.zshrc
